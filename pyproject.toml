@@ -14,6 +14,14 @@ dependencies = [
     "ddtrace>=2.17",
 ]
 
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+# Explicit, because a flat layout with app/ + eval/ + scripts/ is ambiguous to auto-discovery.
+[tool.setuptools]
+packages = ["app", "eval", "scripts"]
+
 [project.optional-dependencies]
 dev = ["pytest>=8.3", "pytest-cov>=6.0", "mypy>=1.13", "ruff>=0.8"]
 
